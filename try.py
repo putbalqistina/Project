@@ -49,42 +49,70 @@ ingredients = {
 }
 
 # ingredient input
-item1 = input("Enter first ingredient: ").lower()
-item2 = input("Enter second ingredient: ").lower()
+player_alive = True
+while player_alive:
+    item1 = input("Enter first ingredient: ").lower()
+    item2 = input("Enter second ingredient: ").lower()
+    
+    type1 = ingredients.get(item1)
+    type2 = ingredients.get(item2)
+
+    # potion name
+    if {item1,item2} == {"nightshade berry","dragon scale dust"}:
+        name = "Drakeshadow Toxin"
+        print(f"Name: {name}")
+    elif {item1,item2} == {"nightshade berry","venom fang"}:
+        name = "Assassin’s Bloom"
+        print(f"Name: {name}")
+    elif {item1,item2} == {"nightshade berry","moon dew"}:
+        print("Name: Lunar Venom Elixir")
+    elif {item1,item2} == {"nightshade berry","ashroot"}:
+        print("Name: Elixir of Withering Shadows")
+    elif {item1,item2} == {"moon dew","ashroot"}:
+        print("Name: Mist of Ancient Roots")
+    elif {item1,item2} == {"moon dew","dragon scale dust"}:
+        print("Name: Celestial Scale Draught")
+    elif {item1,item2} == {"moon dew","venom fang"}:
+        print("Name: Moonbite Serum")
+    elif {item1,item2} == {"ashroot","dragon scale dust"}:
+        print("Name: Emberhide Tonic")
+    elif {item1,item2} == {"ashroot","venom fang"}:
+        print("Name: Gravefang Brew")
+    elif {item1,item2} == {"ashroot","dragon scale dust"}:
+        print("Name: Wyrmfang Concoction")
+
+    # potion strength
+    if {type1,type2} == {'base','base'}:
+        pstrength = "Weak"
+        print(f"Potion strength: {pstrength}")
+    elif {type1,type2} == {'base','rare'}:
+        pstrength = "Rare"
+        print(f"Potion strength: {pstrength}")
+    elif {type1,type2} == {'rare','rare'}:
+        pstrength = "Unstable"
+        print(f"Potion strength: {pstrength}")
+    else:
+        print("Invalid ingredients")
+
+    if pstrength == "Weak":
+        print("You managed to kill the ghost!")
+        print('You can proceed to Level 2.')
+        break
+    elif pstrength == "Rare":
+        print('Uh oh, your potion is too strong.')
+        print('You have to re-do your potion.')
+        item1 = input("Enter first ingredient: ").lower()
+        item2 = input("Enter second ingredient: ").lower()
+    elif pstrength == "Unstable":
+        print('Your potion is unstable and it might kill you.')
+        print('You have to re-do your potion.')
+        item1 = input("Enter first ingredient: ").lower()
+        item2 = input("Enter second ingredient: ").lower()
+
+print()
+print("Level 2: Second Floor ִֶָ𓂃 ࣪˖𓉸ִֶָྀི ִֶָ་༘࿐")
+print()
  
-type1 = ingredients.get(item1)
-type2 = ingredients.get(item2)
+        
 
-# potion name
-if {item1,item2} == {"nightshade berry","dragon scale dust"}:
-    print("Name: Drakeshadow Toxin")
-elif {item1,item2} == {"nightshade berry","venom fang"}:
-    print("Name: Assassin’s Bloom")
-elif {item1,item2} == {"nightshade berry","moon dew"}:
-    print("Name: Lunar Venom Elixir")
-elif {item1,item2} == {"nightshade berry","ashroot"}:
-    print("Name: Elixir of Withering Shadows")
-elif {item1,item2} == {"moon dew","ashroot"}:
-    print("Name: Mist of Ancient Roots")
-elif {item1,item2} == {"moon dew","dragon scale dust"}:
-    print("Name: Celestial Scale Draught")
-elif {item1,item2} == {"moon dew","venom fang"}:
-    print("Name: Moonbite Serum")
-elif {item1,item2} == {"ashroot","dragon scale dust"}:
-    print("Name: Emberhide Tonic")
-elif {item1,item2} == {"ashroot","venom fang"}:
-    print("Name: Gravefang Brew")
-elif {item1,item2} == {"ashroot","dragon scale dust"}:
-    print("Name: Wyrmfang Concoction")
-
-# potion strength
-if {type1,type2} == {'base','base'}:
-    print("Strength: Weak Poison")
-elif {type1,type2} == {'base','rare'}:
-    print("Strength: Strong Poison")
-elif {type1,type2} == {'rare','rare'}:
-    print("Strength: Unstable Poison")
-else:
-    print("Invalid ingredients")
-
-
+    
